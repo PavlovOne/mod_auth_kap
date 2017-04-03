@@ -25,13 +25,8 @@
 
 #include "cache/cache.h"
 
-extern "C" module AP_MODULE_DECLARE_DATA auth_kap_module;
-
-// #ifdef APLOG_USE_MODULE
-// APLOG_USE_MODULE(auth_kap_module);
-// #endif
 #ifdef APLOG_USE_MODULE
-static int * const aplog_module_index = &(auth_kap_module.module_index);
+APLOG_USE_MODULE(auth_kap);
 #endif
 
 #ifndef KAP_DEBUG

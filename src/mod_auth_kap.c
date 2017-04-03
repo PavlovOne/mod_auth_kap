@@ -23,6 +23,12 @@
 
 #include "mod_auth_kap.h"
 
+//#ifdef AP_DECLARE_MODULE
+//AP_DECLARE_MODULE(auth_kap_module);
+//#endif
+
+extern module AP_MODULE_DECLARE_DATA auth_kap_module;
+
 // TODO:
 // - sort out kap_cfg vs. kap_dir_cfg stuff
 // - rigid input checking on discovery responses
@@ -2261,11 +2267,11 @@ int kap_auth_checker(request_rec *r) {
 extern command_rec kap_config_cmds[];
 
 module AP_MODULE_DECLARE_DATA auth_kap_module = {
-		STANDARD20_MODULE_STUFF,
-		kap_create_dir_config,
-		kap_merge_dir_config,
-		kap_create_server_config,
-		kap_merge_server_config,
-		kap_config_cmds,
-		kap_register_hooks
+	STANDARD20_MODULE_STUFF,
+	kap_create_dir_config,
+	kap_merge_dir_config,
+	kap_create_server_config,
+	kap_merge_server_config,
+	kap_config_cmds,
+	kap_register_hooks
 };
