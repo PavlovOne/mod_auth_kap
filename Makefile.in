@@ -1,31 +1,31 @@
 
 JWT_SRC = \
-	src/jose/apr_jwt.c \
-	src/jose/apr_jwk.c \
-	src/jose/apr_jws.c \
-	src/jose/apr_jwe.c
+	src/jose/apr_jwt.cpp \
+	src/jose/apr_jwk.cpp \
+	src/jose/apr_jws.cpp \
+	src/jose/apr_jwe.cpp
 
 JWT_HDRS = \
 	src/jose/apr_jose.h
 
 # Source files. mod_auth_kap.c must be the first file.
-SRC=src/mod_auth_kap.c \
-	src/cache/file.c \
-	src/cache/memcache.c \
-	src/cache/shm.c \
-	src/cache/lock.c \
-	src/proto.c \
-	src/crypto.c \
-	src/config.c \
-	src/util.c \
-	src/authz.c \
-	src/session.c \
-	src/metadata.c \
+SRC=src/mod_auth_kap.cpp \
+	src/cache/file.cpp \
+	src/cache/memcache.cpp \
+	src/cache/shm.cpp \
+	src/cache/lock.cpp \
+	src/proto.cpp \
+	src/crypto.cpp \
+	src/config.cpp \
+	src/util.cpp \
+	src/authz.cpp \
+	src/session.cpp \
+	src/metadata.cpp \
 	$(JWT_SRC)
 
 ifeq (@HAVE_LIBHIREDIS@, 1)
 SRC += \
-	src/cache/redis.c	
+	src/cache/redis.cpp
 REDIS_CFLAGS=-DUSE_LIBHIREDIS @HIREDIS_CFLAGS@
 REDIS_LIBS=@HIREDIS_LIBS@
 endif
