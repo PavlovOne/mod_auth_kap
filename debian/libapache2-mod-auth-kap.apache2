@@ -1,0 +1,3 @@
+mod src/.libs/mod_auth_kap.so
+mod debian/auth_kap.load
+mod auth_kap.conf
